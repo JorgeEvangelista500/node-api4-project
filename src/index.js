@@ -26,5 +26,9 @@ server.post('/api/register',(req, res) => {
 })
 
 server.post('/api/login', (req,res) => {
-    
+    const login = users.filter(user =>
+        user.username === req.body.username &&
+        user.password === req.body.password)
+    res.send(login.length === 0 ? 'Invalid Login' : `Welcome ${req.body.username}`)
+
 })
