@@ -12,13 +12,17 @@ server.listen(PORT, () => {
     console.log(`listening on port ${PORT}`)
 })
 
+server.get('/', (req, res) => {
+    res.send(`<h1>Heroku-App!</h1>`)
+})
+
 server.get('/api/users',(req, res) => {
-    res.status(200).json(users)
+    res.send(users)
 })
 
 server.post('/api/register',(req, res) => {
     const user = req.body
-    res.status(200).json(user)
+    res.send(user)
 })
 
 server.post('/api/login', (req,res) => {
